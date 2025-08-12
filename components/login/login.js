@@ -20,3 +20,5 @@ let social_icon = document.getElementsByClassName("social-icons")[0];
 socialIcons.forEach((icon) => {
     social_icon.innerHTML += `<img src="${icon.src}" alt=${icon.name}>`
 })
+
+
