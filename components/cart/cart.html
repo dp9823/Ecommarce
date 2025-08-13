@@ -10,7 +10,9 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
+        <!-- Comment 1 header like line on page at TOP -->
         <div class="bg-dark text-white text-center py-1 small position-relative">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
             <a href="#" class="text-white fw-bold text-decoration-underline ms-1">ShopNow</a>
@@ -28,17 +30,27 @@
                 </div>
             </div>
         </div>
+        <!-- Comment 1 END -->
 
+        <!-- Comment 2 Main Header -->
         <nav class="navbar navbar-expand-lg bg-white border-bottom">
             <div class="container">
                 <a class="navbar-brand fw-bold">Exclusive</a>
 
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link">Home</a></li>
-                        <li class="nav-item"><a class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link">About</a></li>
-                        <li class="nav-item"><a class="nav-link">Sign Up</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../dashboard/dashboard.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#signup">Sign Up</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -62,8 +74,11 @@
                 </div>
             </div>
         </nav>
+        <!-- Comment 2 END -->
     </header>
+    <!-- Header END -->
 
+    <!-- Main Content -->
     <div class="container my-5">
         <table class="table align-middle shadow-sm bg-white rounded">
             <thead class="table-light">
@@ -74,50 +89,30 @@
                     <th scope="col">Subtotal</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="position-relative d-inline-block">
-                            <img src="/Pratical Assesment/assets/14productdesk.png" alt="LCD Monitor" class="img-fluid"
-                                style="width: 80px; height: 50px;" />
-                            <button type="button"
-                                class="btn btn-danger btn-sm position-absolute top-0 start-0 translate-middle p-0">
-                                <i class="bi bi-x" style="font-size: 14px;"></i>
-                            </button>
-                        </div>
-                        <span class="ms-2 align-middle">LCD Monitor</span>
-                    </td>
-                    <td>$650</td>
-                    <td>
-                        <input type="number" class="form-control" value="1" min="1" style="width: 60px;" />
-                    </td>
-                    <td>$650</td>
-                </tr>
-
-            </tbody>
+            <tbody id="cart-tbody"></tbody>
         </table>
 
         <div class="d-flex justify-content-between my-4">
-            <button class="btn btn-outline-secondary">Return To Shop</button>
-            <button class="btn btn-outline-secondary">Update Cart</button>
+            <button id="return-btn" class="btn btn-outline-secondary">Return To Shop</button>
+            <button id="update-btn" class="btn btn-outline-secondary">Update Cart</button>
         </div>
 
         <div class="row align-items-stretch">
-            <div class="col-5">
-                <div class=" border-0 p-2 d-flex align-items-center gap-2">
+            <div class="col-12 col-lg-5">
+                <div class="border-0 p-2 d-flex align-items-center gap-2">
                     <input type="text" class="form-control" placeholder="Coupon Code" />
                     <button class="btn btn-danger w-50">Apply Coupon</button>
                 </div>
             </div>
 
-            <div class="col-2"></div>
+            <div class="d-none d-lg-block col-lg-2"></div>
 
-            <div class="col-5">
+            <div class="col-12 col-lg-5 mt-4 mt-lg-0">
                 <div class="h-100 border p-4">
                     <h5 class="mb-3">Cart Total</h5>
                     <div class="d-flex justify-content-between mb-2">
                         <span>Subtotal:</span>
-                        <span>$1750</span>
+                        <span id="subtotal-text">$0</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3">
                         <span>Shipping:</span>
@@ -126,14 +121,16 @@
                     <hr />
                     <div class="d-flex justify-content-between fw-bold fs-5 mt-3">
                         <span>Total:</span>
-                        <span>$1750</span>
+                        <span id="total-text">$0</span>
                     </div>
                     <button class="btn btn-danger w-100 mt-4">Proceed to checkout</button>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Main Content END -->
 
+    <!-- Footer -->
     <footer class="footer bg-black text-light py-3">
         <div class="container">
             <div class="row text-center text-md-start m-4">
@@ -142,9 +139,8 @@
                     <h5>Exclusive</h5>
                     <p>Subscribe</p>
                     <p>Get 10% off your first order</p>
-                    <img src="/Pratical Assesment/assets/Send Mail (2).svg">
+                    <img class="w-100" src="/Pratical Assesment/assets/Send Mail (2).svg">
                 </div>
-
 
                 <div class="col-md-3 mb-4">
                     <h5>Support</h5>
@@ -152,7 +148,6 @@
                     <p>exclusive@gmail.com</p>
                     <p>+88015-88888-9999</p>
                 </div>
-
 
                 <div class="col-md-2 mb-4">
                     <h5>Account</h5>
@@ -163,7 +158,6 @@
                     <p>Shop</p>
                 </div>
 
-
                 <div class="col-md-2 mb-4">
                     <h5>Quick Link</h5>
                     <p>Privacy Policy</p>
@@ -171,7 +165,6 @@
                     <p>FAQ</p>
                     <p>Contact</p>
                 </div>
-
 
                 <div class="col-md-3 mb-4">
                     <h5>Download App</h5>
@@ -193,7 +186,11 @@
             </div>
         </div>
     </footer>
+    <!-- Footer END -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="cart.js"></script>
+    <script src="../login/login.js"></script>
 </body>
 
 </html>

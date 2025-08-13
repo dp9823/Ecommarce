@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-
 </head>
 
 <body>
+  <!-- Header -->
   <header>
+    <!-- Comment 1 header like line on page at TOP -->
     <div class="bg-dark text-white text-center py-1 small">
       Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
       <a href="#" class="text-white fw-bold text-decoration-underline ms-1">ShopNow</a>
@@ -25,7 +26,9 @@
         </div>
       </div>
     </div>
+    <!-- Comment 1 END -->
 
+    <!-- Comment 2 Main Header -->
     <nav class="navbar navbar-expand-lg bg-white border-bottom">
       <div class="container">
         <a class="navbar-brand fw-bold">Exclusive</a>
@@ -51,7 +54,11 @@
         </form>
       </div>
     </nav>
+    <!-- Comment 2 END Main Header -->
   </header>
+  <!-- Header END -->
+
+  <!-- Comment 3 Main Section of Login Form at Right and Image at Left -->
   <section>
     <div class="container-fluid">
       <div class="row vh-100">
@@ -64,15 +71,17 @@
           <div class="w-75">
             <h2 class="mb-3">Log in to Exclusive</h2>
             <p class="mb-4">Enter your details below</p>
-            <form>
+            <form id="loginForm">
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Email or Phone Number" required>
+                <input type="text" id="usernameInput" class="form-control" placeholder="Email or Phone Number"
+                  value="emilys" required>
               </div>
               <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Password" required>
+                <input type="password" id="passwordInput" class="form-control" placeholder="Password" value="emilyspass"
+                  required>
               </div>
               <div class="d-flex justify-content-between align-items-center mb-2">
-                <button type="submit" class="btn btn-danger w-25" onclick="window.location.href='../dashboard/dashboard.html'">Log In</button>
+                <button type="submit" class="btn btn-danger w-25">Log In</button>
                 <a class="text-danger text-decoration-none">Forget Password?</a>
               </div>
             </form>
@@ -81,8 +90,10 @@
       </div>
     </div>
   </section>
+  <!-- Comment 3 END -->
 
 
+  <!-- Footer -->
   <footer class="footer bg-black text-light py-3">
     <div class="container">
       <div class="row text-center text-md-start m-4">
@@ -91,9 +102,8 @@
           <h5>Exclusive</h5>
           <p>Subscribe</p>
           <p>Get 10% off your first order</p>
-          <img src="/Pratical Assesment/assets/Send Mail (2).svg">
+          <img class="w-100" src="/Pratical Assesment/assets/Send Mail (2).svg">
         </div>
-
 
         <div class="col-md-3 mb-4">
           <h5>Support</h5>
@@ -101,7 +111,6 @@
           <p>exclusive@gmail.com</p>
           <p>+88015-88888-9999</p>
         </div>
-
 
         <div class="col-md-2 mb-4">
           <h5>Account</h5>
@@ -112,7 +121,6 @@
           <p>Shop</p>
         </div>
 
-
         <div class="col-md-2 mb-4">
           <h5>Quick Link</h5>
           <p>Privacy Policy</p>
@@ -120,7 +128,6 @@
           <p>FAQ</p>
           <p>Contact</p>
         </div>
-
 
         <div class="col-md-3 mb-4">
           <h5>Download App</h5>
@@ -142,7 +149,7 @@
       </div>
     </div>
   </footer>
-
+  <!-- Footer END -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
