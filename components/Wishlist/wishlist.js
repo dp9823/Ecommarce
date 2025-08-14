@@ -7,30 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   wishlistCountEl.textContent = wishlistIds.length;
 
-  fetch("data.json")
-  .then(res => res.json())
-  .then(data => {
-    const wishlistItems = data.filter(item => wishlistIds.includes(item.id));
 
-    if (wishlistItems.length === 0) {
-      wishlistGrid.innerHTML = `
+  //fetch data from data.json on wishlist
+  fetch("data.json")
+    .then(res => res.json())
+    .then(data => {
+      const wishlistItems = data.filter(item => wishlistIds.includes(item.id));
+
+      if (wishlistItems.length === 0) {
+        wishlistGrid.innerHTML = `
         <div class="col-12 text-center text-muted py-5">
           <h5>No items in your wishlist</h5>
         </div>
       `;
-    } else {
-      renderCards(wishlistGrid, wishlistItems, { showRemove: true });
-    }
+      } else {
+        renderCards(wishlistGrid, wishlistItems, { showRemove: true });
+      }
 
-    const nonWishlistItems = data.filter(item => !wishlistIds.includes(item.id));
-    const shuffled = nonWishlistItems.sort(() => 0.5 - Math.random());
-    const recommendationItems = shuffled.slice(0, 4);
+      // Recommendation section
+      const staticRecommendationIds = [4, 8, 2, 6];
+      const recommendationItems = data.filter(item =>
+        staticRecommendationIds.includes(item.id)
+      );
+      renderCards(recommendGrid, recommendationItems.slice(0, 4), { showRemove: false });
+    });
 
-    renderCards(recommendGrid, recommendationItems, { showRemove: false });
-  });
 
-
-
+  // Move all items to cart
+  if (wishlistIds.length === 0) {
+    moveAllBtn.disabled = true;
+    moveAllBtn.classList.add("disabled");
+  }
   moveAllBtn.addEventListener("click", function () {
     if (wishlistIds.length === 0) return;
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -53,16 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Function to render cards in the wishlist and recommendation sections
 function renderCards(targetGrid, items, options) {
   const { showRemove } = options;
-
   const cardsHTML = items.map(item => `
     <div class="col">
       <div class="card h-100">
         <div class="position-relative p-3">
           ${showRemove ? `
             <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2" onclick="removeFromWishlist(${item.id})">
-              <i class="bi bi-x"></i>
+              <i class="bi bi-trash"></i>
             </button>
           ` : ''}
           <img src="/Pratical Assesment/assets/${item.img}" class="card-img-top img-fluid rounded" alt="product">
@@ -77,11 +84,11 @@ function renderCards(targetGrid, items, options) {
       </div>
     </div>
   `).join("");
-
   targetGrid.innerHTML = cardsHTML;
 }
 
 
+// Remove item from wishlist
 function removeFromWishlist(id) {
   let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   wishlist = wishlist.filter(item => item !== id);
@@ -89,6 +96,7 @@ function removeFromWishlist(id) {
   location.reload();
 }
 
+// Add to cart function
 function addToCart(id) {
   id = Number(id);
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -109,6 +117,8 @@ function addToCart(id) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+
+//when click on add to cart it show the Added on the button for 1 second
 function addToCartWithFeedback(id, btn) {
   addToCart(id);
   if (btn) {
@@ -121,6 +131,7 @@ function addToCartWithFeedback(id, btn) {
     }, 1000);
   }
 }
+
 
 
 

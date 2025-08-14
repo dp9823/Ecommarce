@@ -49,3 +49,11 @@ document.getElementById('loginForm').addEventListener('submit', async e => {
         alert(err.message);
     }
 });
+
+
+//Logout Function
+function logoutUser() {
+    localStorage.removeItem('user');
+    window.location.href = '../login/login.html';
+}
+

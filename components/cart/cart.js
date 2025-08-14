@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    normalizeCartStorage();
+    totalCart();
     renderCartPage();
 
     document.getElementById("return-btn").addEventListener("click", () => {
@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function normalizeCartStorage() {
+// Function to calculate subtotal, shipping, and total
+function totalCart() {
     const raw = JSON.parse(localStorage.getItem("cart")) || [];
     const aggregated = new Map();
     raw.forEach((entry) => {
@@ -29,6 +30,7 @@ function normalizeCartStorage() {
     localStorage.setItem("cart", JSON.stringify(normalized));
 }
 
+// Function to create order data
 async function loadProductsMap() {
     const sources = [
         "../dashboard/data.json",
@@ -45,6 +47,7 @@ async function loadProductsMap() {
     });
     return map;
 }
+
 
 async function renderCartPage() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -88,6 +91,7 @@ async function renderCartPage() {
     updateTotals(subtotal);
 }
 
+// Update totals in the cart
 function updateTotals(subtotal) {
     const subtotalText = document.getElementById("subtotal-text");
     const totalText = document.getElementById("total-text");
@@ -95,6 +99,7 @@ function updateTotals(subtotal) {
     totalText.textContent = `$${subtotal}`;
 }
 
+// Update quantity of an item in the cart
 function updateQuantity(id, qty) {
     qty = Math.max(1, Number(qty) || 1);
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -103,12 +108,15 @@ function updateQuantity(id, qty) {
     renderCartPage();
 }
 
+
+// Remove an item from the cart
 function removeFromCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart = cart.filter((item) => Number(item.id) !== Number(id));
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCartPage();
 }
+
 
 window.updateQuantity = updateQuantity;
 window.removeFromCart = removeFromCart;

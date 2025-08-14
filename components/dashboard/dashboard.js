@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //fetch data from producct.json on dashboard
+    //fetch data from data.json on dashboard
     fetch("data.json")
         .then((res) => res.json())
         .then((data) => {
